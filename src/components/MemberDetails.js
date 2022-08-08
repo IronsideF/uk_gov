@@ -16,19 +16,20 @@ const MemberDetails = ({currentMember, currentMemberInterests, currentMemberCont
     
     return (
         <>
-        <img src={currentMember.value.thumbnailUrl} alt="The selected MP" />
+        <div className='member-details'>
+        <img style={{border: `5px double #${currentMember.value.latestParty.backgroundColour}`, borderRadius: '5px'}} src={currentMember.value.thumbnailUrl} alt="The selected MP" />
         <p dangerouslySetInnerHTML={{__html: currentMemberSynopsis}}></p>
-        <ul>
         <li>Name: {currentMember.value.nameDisplayAs}</li>
         <li>{sourceOfSeat}: {currentMember.value.latestHouseMembership.membershipFrom}</li>
         <li>Party: {currentMember.value.latestParty.name}</li>
         <li>Gender: {currentMember.value.gender}</li>
         <li>House of {currentMemberHouse}</li>
+        </div>
         <h4>Contact Details</h4>
         {currentMemberContact}
         {/* <h5>Total Declared Interests: {currentMemberInterests.length}</h5> */}
         {currentMemberInterests}
-    </ul></>
+    </>
   )
 }
 

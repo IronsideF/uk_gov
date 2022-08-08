@@ -3,7 +3,7 @@ import React from 'react'
 const PartySelector = ({parties, onPartySelect}) => {
   
     const partyArray = [...parties]
-    const partyNodes = partyArray.map((party, i) => <option value={party.name} key={i}>{party.name}</option>)
+    const partyNodes = partyArray.map((party, i) => <option className={party.abbreviation} value={party.name} key={i}>{party.name}</option>)
     const handleSelect = (event) => {
         onPartySelect(event.target.value)
     }

@@ -5,6 +5,7 @@ import HouseSelector from '../components/HouseSelector'
 import InterestListItem from '../components/InterestListItem'
 import ContactListItem from '../components/ContactListItem'
 import PartySelector from '../components/PartySelector'
+import Totals from '../components/Totals'
 
 const MemberContainer = () => {
     
@@ -70,12 +71,6 @@ const MemberContainer = () => {
             parties.push(member.value.latestParty)
         }
     })
-    // let uniqueParties = new Set(membersInSelectedHouse.map((member) => member.value.latestParty.name))
-    // console.log(uniqueParties)
-    // uniqueParties = [...uniqueParties]
-    // const parties = membersInSelectedHouse.filter((member)=> !(uniqueParties.includes(member.value.latestParty.name))).map((member) => {return {name:member.value.latestParty.name, abbreviation:member.value.latestParty.abbreviation}})
-    console.log(parties)
-    // console.log(uniqueParties)
 
     const membersInSelectedParty = membersInSelectedHouse.filter((member)=> member.value.latestParty.name === selectedParty)
    
@@ -86,6 +81,7 @@ const MemberContainer = () => {
         <HouseSelector onHouseSelect={onHouseSelect}/>
         <PartySelector parties={parties} onPartySelect={onPartySelect}/>
         {selectedParty ? <MemberSelector members={membersInSelectedParty} onMemberSelect={onMemberSelect}/> : <MemberSelector members={membersInSelectedHouse} onMemberSelect={onMemberSelect}/>}
+        {/* <Totals /> */}
         {currentMember ? <MemberDetails currentMember={currentMember} currentMemberInterests={currentMemberInterests} currentMemberContact={currentMemberContact} house={house} currentMemberSynopsis={currentMemberSynopsis}/> : null}
 
     </>
